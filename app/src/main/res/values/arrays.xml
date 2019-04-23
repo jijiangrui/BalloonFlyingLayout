@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="balloon_flying_resource_ids">
+        <item>@mipmap/heart0</item>
+        <item>@mipmap/heart1</item>
+        <item>@mipmap/heart2</item>
+        <item>@mipmap/heart3</item>
+        <item>@mipmap/heart4</item>
+        <item>@mipmap/heart5</item>
+        <item>@mipmap/ic_launcher</item>
+        <item>@mipmap/ic_launcher_round</item>
+    </string-array>
+
+</resources>
