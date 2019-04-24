@@ -65,13 +65,20 @@ public class BalloonFlyingLayout extends RelativeLayout {
      */
     private void init() {
         //获取图片资源
-        TypedArray arrays = context.getResources().obtainTypedArray(R.array.balloon_flying_resource_ids);
-        int length = arrays.length();
-        icons = new Drawable[length];
-        for (int i = 0; i < length; i++) {
-            icons[i]  = ContextCompat.getDrawable(context, arrays.getResourceId(i, 0));
+        TypedArray arrays = null;
+        try {
+            arrays = context.getResources().obtainTypedArray(R.array.balloon_flying_resource_ids);
+            int length = arrays.length();
+            icons = new Drawable[length];
+            for (int i = 0; i < length; i++) {
+                icons[i]  = ContextCompat.getDrawable(context, arrays.getResourceId(i, 0));
+            }
+        } catch (Exception e) {
+
+        } finally {
+            if (arrays != null)
+                arrays.recycle();
         }
-        arrays.recycle();
 
         // 在动画开始与结束的地方速率改变比较慢，在中间的时候加速
         interpolators[0] = new AccelerateDecelerateInterpolator();
@@ -123,6 +130,9 @@ public class BalloonFlyingLayout extends RelativeLayout {
      * 显示一个漂浮上升的View
      */
     public void addFlyingView() {
+        if (icons == null || icons.length == 0) {
+            return;
+        }
         ImageView iv = null;
         LayoutParams params = null;
         Drawable drawable = icons[new Random().nextInt(icons.length)];
