@@ -185,7 +185,7 @@ public class BalloonFlyingLayout extends RelativeLayout {
     private void putAnimator2Queue(Animator animator) {
         try {
             mAnimatorBlockingQueue.put(animator);
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
 
         }
     }
@@ -193,7 +193,7 @@ public class BalloonFlyingLayout extends RelativeLayout {
     private void putView2Queue(ImageView view) {
         try {
             mImageViewBlockingQueue.put(view);
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
 
         }
     }
@@ -283,7 +283,7 @@ public class BalloonFlyingLayout extends RelativeLayout {
         private PointF p1;
         private PointF p2;
 
-        public BezierEvaluator(PointF p1, PointF p2) {
+        BezierEvaluator(PointF p1, PointF p2) {
             super();
             this.p1 = p1;
             this.p2 = p2;
